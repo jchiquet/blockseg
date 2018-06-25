@@ -13,7 +13,7 @@ Class of object returned by the \code{stab.blockSeg} function.
  \describe{
 
 \item{\code{RowBreaks}: }{a vectors of length the number of rows. Each case contains the number of active variable identified
-along the stability selection.}  
+along the stability selection.}
 
 \item{\code{ColBreaks}: }{a vectors of length the number of columns. Each case contains the number of active variable identified
 along the stability selection.}

@@ -1,18 +1,20 @@
 Package: blockseg
 Type: Package
 Title: Two Dimensional Change-Points Detection
-Version: 0.3.0
-Date: 2018-06-20
+Version: 0.5.0
+Date: 2018-06-25
 Author: Authors@R: c(
     person("Julien", "Chiquet", role = c("aut", "cre"), email = "julien.chiquet@inra.fr",
       comment = c(ORCID = "0000-0002-3629-3429")),
-    person("Vincent", "Brault", email = "vincent.brault@univ-grenoble-alpes.fr", role = "aut"))
+    person("Vincent", "Brault", email = "vincent.brault@univ-grenoble-alpes.fr", role = "aut",
+      comment = c(ORCID = "0000-0003-4228-6687")))
 Maintainer: <vincent.brault@univ-grenoble-alpes.fr>
 Description: Segments a matrix in blocks with constant values.
+    BRAULT V, CHIQUET J. and LÉVY-LEDUC C. (2017) <doi:10.1214/17-EJS1270>.
 License: GPL (>= 2.0)
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/jchiquet/blockseg (dev version)
-Imports: Rcpp, Matrix, ggplot2, reshape2, methods
+Imports: Rcpp, Matrix, ggplot2, reshape2, methods, stats, shiny
 LinkingTo: Rcpp, RcppArmadillo
 RoxygenNote: 6.0.1

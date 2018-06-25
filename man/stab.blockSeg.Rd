@@ -5,7 +5,7 @@
 \title{stab.blockSeg algorithm}
 \usage{
 stab.blockSeg(Y, nsimu, max.break, max.var = floor(ncol(Y)^2/8),
-  mc.cores = 2, verbose = TRUE)
+  random.break = TRUE, sym.break = FALSE, mc.cores = 2, verbose = TRUE)
 }
 \arguments{
 \item{Y}{matrix of observations.}
@@ -17,6 +17,15 @@ stab.blockSeg(Y, nsimu, max.break, max.var = floor(ncol(Y)^2/8),
 \item{max.var}{a positive integer less than number of columns times number of rows.
 By default, ncol(Y)**2/8.}
 
+\item{random.break}{logical. To change the position of the first row (resp. column); the rows
+before this position are moved to the end. By default TRUE.}
+
+\item{sym.break}{logical. In the case of symmetric matrices, it is possible to cumulate breaks
+in row and columns to improve the quality of the estimation. By default FALSE.
+Warning: a check is made on the dimensions of the matrix but not on the fact that it is symmetrical
+or not; this choice was made for the case where the user would like to have symmetrical breaks
+even if the matrix is not (not recommended by the authors of the package).}
+
 \item{mc.cores}{a positive integer giving the number of cores used. If you use windows, the parallelization is impossible.
 By default, 2}
 
@@ -26,8 +35,8 @@ By default, 2}
 Model selection for the blockSeg algorithm.
 }
 \examples{
- ## model parameters 
-n <- 100 
+ ## model parameters
+n <- 100
 K <- 5
 mu <- suppressWarnings(matrix(rep(c(1,0),ceiling(K**2/2)), K,K))
 Y <- rblockdata(n,mu,sigma=.5)$Y

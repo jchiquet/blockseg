@@ -6,7 +6,8 @@
 \title{Plot method for a stab.blockSeg object}
 \usage{
 \S4method{plot}{stab.blockSeg}(x, y, threshold = 40,
-  postprocessing = list(post = TRUE, adjacent = 2), col = "GrayLevel", ...)
+  postprocessing = list(post = TRUE, adjacent = 2), col = "GrayLevel",
+  shiny = FALSE, ...)
 }
 \arguments{
 \item{x}{an object of class \code{stab.blockSeg}.}
@@ -15,12 +16,14 @@
 
 \item{threshold}{the threshold used (percent the maximum value).}
 
-\item{postprocessing}{the condition if plot used a post-processing (if $post=TRUE) or not. 
+\item{postprocessing}{the condition if plot used a post-processing (if $post=TRUE) or not.
 If there is a post-processing, post-processing$adjacent is the maximal distance between two points.}
 
-\item{col}{colours of the graphics. By default, it is "GrayLevel" to black and white colours. 
-If it is another "character", it is a level blue or red. Else, it is possible to propose a sequence with 
+\item{col}{colours of the graphics. By default, it is "GrayLevel" to black and white colours.
+If it is another "character", it is a level blue or red. Else, it is possible to propose a sequence with
 the colour (rgb format).}
+
+\item{shiny}{for a representation with a shiny application. By default shiny=FALSE}
 
 \item{...}{used for S4 compatibility.}
 }
@@ -30,7 +33,7 @@ Produce a plot of two-dimensional segmentation of a \code{stab.blockSeg} fit.
 \examples{
 \dontrun{
 n <- 100
-## model parameters 
+## model parameters
 K <- 5
 mu <- suppressWarnings(matrix(rep(c(1,0),ceiling(K**2/2)), K,K))
 Y <- rblockdata(n,mu,sigma=.5)$Y

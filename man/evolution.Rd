@@ -20,11 +20,11 @@ evolution(x, y, thresholds = 10 * (8:1), postprocessing = list(post = TRUE,
 
 \item{thresholds}{the thresholds used (percent the maximum value). By default, thresholds = 10 * (8:1).}
 
-\item{postprocessing}{the condition if plot used a post-processing (if $post=TRUE) or not. 
+\item{postprocessing}{the condition if plot used a post-processing (if $post=TRUE) or not.
 If there is a post-processing, post-processing$adjacent is the maximal distance between two points.}
 
-\item{col}{colours of the graphics. By default, it is "GrayLevel" to black and white colours. 
-If it is another "character", it is a level blue or red. Else, it is possible to propose a sequence with 
+\item{col}{colours of the graphics. By default, it is "GrayLevel" to black and white colours.
+If it is another "character", it is a level blue or red. Else, it is possible to propose a sequence with
 the colour (rgb format).}
 
 \item{ask}{If \code{TRUE}, to hit will be necessary to see next plot.}
@@ -36,7 +36,7 @@ Produce a plot of two-dimensional segmentation of a \code{stab.blockSeg} fit.
 }
 \examples{
 n <- 100
-## model parameters 
+## model parameters
 K <- 5
 mu <- suppressWarnings(matrix(rep(c(1,0),ceiling(K**2/2)), K,K))
 Y <- rblockdata(n,mu,sigma=.5)$Y
