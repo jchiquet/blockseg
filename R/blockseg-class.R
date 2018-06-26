@@ -1,20 +1,20 @@
-##' Class "blockSeg"
+##' Class \code{blockSeg}
 ##'
 ##' Class of object returned by the \code{blockSeg} function.
 ##'
 ##' @slot Beta a Matrix object of type \code{dgCMatrix},
-##' encoding the solution path of the underlying LARS algorithm. Ommited
-##' if the blockSeg function was called with the option
+##' encoding the solution path of the underlying LARS algorithm. Omitted
+##' if the \code{\link{blockSeg}} function was called with the option
 ##' \code{Beta=FALSE}.
 ##'
 ##' @slot Lambda a numeric vector with the successive values
 ##' of \code{Lambda}, that is, the value of the penalty parameter
 ##' corresponding to a new event in the path (either a variable
 ##' activation or deactivation).
-##' 
-##' @slot RowBreaks a list of vectors, one per step of the 
+##'
+##' @slot RowBreaks a list of vectors, one per step of the
 ##' LARS algorithm. Each vector contains the breaks currently identified
-##' along the ROWS of the 2-dimensional signalat the current step.
+##' along the ROWS of the 2-dimensional signal at the current step.
 ##'
 ##' @slot ColBreaks a list of vectors, one per step of the
 ##' LARS algorithm. Each vector contains the breaks currently identified
@@ -22,15 +22,15 @@
 ##'
 ##' @slot Actions a list with the successive actions at each
 ##' step of the LARS algorithm.
-##' 
+##'
 ##' @param Y the original data matrix
 ##'
-##' @param object an object with class blockSeg
+##' @param object an object with class \linkS4class{blockSeg}
 ##'
-##' @param x in the print method, a blockSeg object 
-##' 
+##' @param x in the print method, a \linkS4class{blockSeg} object
+##'
 ##' @param ... in the print method, additional parameters (ignored)
-##' 
+##'
 ##' @seealso See also \code{\link{plot,blockSeg-method}}, \code{\link{predict,blockSeg-method}}
 ##' and \code{\link{blockSeg}}.
 ##'
@@ -88,7 +88,7 @@ setMethod("residuals", "blockSeg", definition =
        return(lapply(predict(object, Y), function(Y.hat) {
            return(getExpandedYhat(Y.hat) - Y)
        }))
-       
+
    })
 
 ##' @rdname blockSeg-class
@@ -104,7 +104,7 @@ setMethod("getBreaks", "blockSeg", definition =
    function(object) {
     return(lapply(seq(length(object@Actions)), function(k) {
         return(list(RowBreaks = sort(unique(c(1,object@RowBreaks[[k]]))),
-                    ColBreaks = sort(unique(c(1,object@ColBreaks[[k]])))))        
+                    ColBreaks = sort(unique(c(1,object@ColBreaks[[k]])))))
     }))
 })
 
@@ -127,7 +127,7 @@ setMethod("getCompressYhat", "blockSeg", definition =
     }))
 })
 
-##' Predict method for a blockSeg object
+##' Predict method for a \code{blockSeg} object
 ##'
 ##' Produce a prediction for a vector of \code{lambda} parameter and an array of \code{class}.
 ##'
@@ -152,22 +152,22 @@ setMethod("getCompressYhat", "blockSeg", definition =
 ##' @exportMethod predict
 setMethod("predict", "blockSeg", definition =
    function (object, Y, lambda=NULL)  {
-       
-       ## recover all the mu.hat 
+
+       ## recover all the mu.hat
        mu.hat <- getCompressYhat(object, Y)
        lambda.path <- object@Lambda
 
        if (is.null(lambda)){ # no new grid
-           return(setNames(mu.hat, round(lambda.path,3)))           
+           return(setNames(mu.hat, round(lambda.path,3)))
        } else { # linear interpolation
-           
+
            ## adjust the request value of lambda
            lambda.min <- min(lambda.path)
            lambda.max <- max(lambda.path)
            lambda[lambda >= lambda.max] <- lambda.max
            lambda[lambda <= lambda.min] <- lambda.min
            lambda <- sort(unique(lambda), decreasing=TRUE)
-           
+
            ## compute the linear approximation along the path
            frac.hat  <- (lambda - lambda.max)/(lambda.min - lambda.max)
            frac.path <- (lambda.path - lambda.max)/(lambda.min - lambda.max)
@@ -201,7 +201,7 @@ setMethod("predict", "blockSeg", definition =
                }
                return(new.mu)
            })
-           
+
            #new.mu.hat[left == right] <- new.mu.hat[left[left == right]]
 
            ## dirty handling of the boundaries of the path (lambda.min/lambda.max)
@@ -214,14 +214,14 @@ setMethod("predict", "blockSeg", definition =
            }
 
            return(setNames(new.mu.hat, round(lambda)))
-       }       
+       }
 })
 
-##' Plot method for a blockSeg object
+##' Plot method for a \linkS4class{blockSeg} object
 ##'
 ##' Produce a plot of two-dimensional segmentation of a \code{blockSeg} fit.
 ##'
-##' @param x an object of class \code{blockSeg}.
+##' @param x an object of class \linkS4class{blockSeg}.
 ##' @param y used  for S4 compatibility.
 ##' @param lambda parameter used in the LASSO.
 ##' @param ask If \code{TRUE}, to hit will be necessary to see next plot.
@@ -229,7 +229,7 @@ setMethod("predict", "blockSeg", definition =
 ##' @param ... used for S4 compatibility.
 ##'
 ##' @return a \pkg{ggplot2} object which can be plotted via the \code{print} method.
-##' 
+##'
 ##' @rdname plot-blockSeg
 ##' @seealso \code{\linkS4class{blockSeg}}.
 ##'
@@ -262,7 +262,7 @@ setMethod(
       }
     }
     brek=seq(min(y),max(y),length=length(mypalette)+1)
-    
+
     if (!is.logical(ask)){
       stop("ask must be equal to TRUE or FALSE")
     }else{
@@ -270,15 +270,15 @@ setMethod(
         ask=FALSE
       }
     }
-    
+
     n=nrow(y)
     d=ncol(y)
-    
+
     par(ask=ask,mfrow=c(1,2),oma=c(0,0,3,0))
     for (k in 1:length(lambda)){
         ## Diplay of the original matrix
       image(1:d,1:n,t(y)[,n:1],xlab="",ylab="",xaxt="n",yaxt="n",main="Original data",col=mypalette,breaks=brek)
-        
+
         ## Diplay of the estimated matrix
       ty=sort(n+1-unique(c(1,Y.hat[[k]]$RowBreaks,nrow(y))))
       tx=unique(c(1,Y.hat[[k]]$ColBreaks,ncol(y)))

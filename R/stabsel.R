@@ -1,15 +1,15 @@
 ##' stab.blockSeg algorithm
 ##'
-##' Model selection for the blockSeg algorithm.
+##' Model selection for the \code{blockSeg} algorithm.
 ##'
 ##' @param Y matrix of observations.
 ##' @param nsimu a positive integer.
 ##' @param max.break a positive integer less than number of columns divided by 2 and number of rows divided by 2.
 ##' @param max.var a positive integer less than number of columns times number of rows.
-##' By default, ncol(Y)**2/8.
+##' By default, \code{ncol(Y)**2/8}.
 ##' @param random.break logical. To change the position of the first row (resp. column); the rows
 ##' before this position are moved to the end. By default TRUE.
-##' @param sym.break logical. In the case of symmetric matrices, it is possible to cumulate breaks
+##' @param sym.break logical. In the case of symmetric matrices, it is possible to accumulate breaks
 ##' in row and columns to improve the quality of the estimation. By default FALSE.
 ##' Warning: a check is made on the dimensions of the matrix but not on the fact that it is symmetrical
 ##' or not; this choice was made for the case where the user would like to have symmetrical breaks

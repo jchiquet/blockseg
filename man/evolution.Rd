@@ -4,7 +4,7 @@
 \name{evolution}
 \alias{evolution}
 \alias{evolution,stab.blockSeg-method}
-\title{Plot method for a stab.blockSeg object}
+\title{Plot method for a \code{stab.blockSeg} object}
 \usage{
 evolution(x, y, thresholds = 10 * (8:1), postprocessing = list(post = TRUE,
   adjacent = 2), col = "GrayLevel", ask = TRUE)
@@ -23,9 +23,9 @@ evolution(x, y, thresholds = 10 * (8:1), postprocessing = list(post = TRUE,
 \item{postprocessing}{the condition if plot used a post-processing (if $post=TRUE) or not.
 If there is a post-processing, post-processing$adjacent is the maximal distance between two points.}
 
-\item{col}{colours of the graphics. By default, it is "GrayLevel" to black and white colours.
+\item{col}{colors of the graphics. By default, it is "\code{GrayLevel}" to black and white colors.
 If it is another "character", it is a level blue or red. Else, it is possible to propose a sequence with
-the colour (rgb format).}
+the color (\code{\link[grDevices]{rgb}} format).}
 
 \item{ask}{If \code{TRUE}, to hit will be necessary to see next plot.}
 

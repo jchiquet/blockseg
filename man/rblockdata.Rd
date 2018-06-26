@@ -2,26 +2,27 @@
 % Please edit documentation in R/rblockdata.R
 \name{rblockdata}
 \alias{rblockdata}
-\title{Random generation noisy blockwise matrices}
+\title{Random generation noisy block-wise matrices}
 \usage{
 rblockdata(n, mu, sigma, type = c("Eq", "NEq", "NEqbis"))
 }
 \arguments{
 \item{n}{number of rows and columns.}
 
-\item{mu}{symetric matrix to the means.}
+\item{mu}{symmetric matrix to the means.}
 
 \item{sigma}{variance of the variables.}
 
-\item{type}{represent the spacing between two change-point: "Eq" for a homogenous spacement, 
-"NEq" for an arithmetic spacement and "NEqbis" for a decreasing arithmetic spacement.}
+\item{type}{represent the spacing between two change-point: "\code{Eq}" for a homogenous
+spacing, "\code{NEq}" for an arithmetic spacing and "\code{NEqbis}" for a decreasing
+arithmetic spacing.}
 }
 \description{
 Function to draw data.
 }
 \examples{
-## model parameters 
-n <- 100 
+## model parameters
+n <- 100
 K <- 5
 mu <- suppressWarnings(matrix(rep(c(1,0),ceiling(K**2/2)), K,K))
 Y <- rblockdata(n,mu,sigma=.5)

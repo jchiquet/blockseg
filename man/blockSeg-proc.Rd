@@ -2,7 +2,7 @@
 % Please edit documentation in R/blockseg.R
 \name{blockSeg}
 \alias{blockSeg}
-\title{blockSeg fitting procedure}
+\title{\code{blockSeg} fitting procedure}
 \usage{
 blockSeg(Y, max.break = floor(min(ncol(Y), nrow(Y))/10 + 1),
   max.var = floor(ncol(Y)^2/2), verbose = TRUE, Beta = FALSE)
@@ -11,21 +11,21 @@ blockSeg(Y, max.break = floor(min(ncol(Y), nrow(Y))/10 + 1),
 \item{Y}{matrix of observations.}
 
 \item{max.break}{a positive integer less than number of columns and number of rows.
-By default, floor(min(ncol(Y),nrow(Y))/10+1).}
+By default, \code{floor(min(ncol(Y),nrow(Y))/10+1)}.}
 
 \item{max.var}{a positive integer less than number of columns times number of rows.
-By default, ncol(Y)**2/2.}
+By default, \code{ncol(Y)**2/2}.}
 
 \item{verbose}{logical. To display each step. By default TRUE.}
 
 \item{Beta}{logical. To save each Beta associated at each lambda. By default FALSE (very heavy in memory space).}
 }
 \description{
-Produce a blockwise estimation of a matrix.
+Produce a block-wise estimation of a matrix.
 }
 \examples{
- ## model parameters 
-n <- 100 
+ ## model parameters
+n <- 100
 K <- 5
 mu <- suppressWarnings(matrix(rep(c(1,0),ceiling(K**2/2)), K,K))
 Y <- rblockdata(n,mu,sigma=.5)$Y

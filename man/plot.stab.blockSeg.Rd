@@ -3,7 +3,7 @@
 \docType{methods}
 \name{plot,stab.blockSeg-method}
 \alias{plot,stab.blockSeg-method}
-\title{Plot method for a stab.blockSeg object}
+\title{Plot method for a \code{stab.blockSeg} object}
 \usage{
 \S4method{plot}{stab.blockSeg}(x, y, threshold = 40,
   postprocessing = list(post = TRUE, adjacent = 2), col = "GrayLevel",
@@ -19,9 +19,9 @@
 \item{postprocessing}{the condition if plot used a post-processing (if $post=TRUE) or not.
 If there is a post-processing, post-processing$adjacent is the maximal distance between two points.}
 
-\item{col}{colours of the graphics. By default, it is "GrayLevel" to black and white colours.
+\item{col}{colors of the graphics. By default, it is "\code{GrayLevel}" to black and white colors.
 If it is another "character", it is a level blue or red. Else, it is possible to propose a sequence with
-the colour (rgb format).}
+the color (\code{\link[grDevices]{rgb}} format).}
 
 \item{shiny}{for a representation with a shiny application. By default shiny=FALSE}
 

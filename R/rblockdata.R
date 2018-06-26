@@ -1,19 +1,20 @@
-##' Random generation noisy blockwise matrices
+##' Random generation noisy block-wise matrices
 ##'
 ##' Function to draw data.
 ##'
 ##' @param n number of rows and columns.
-##' @param mu symetric matrix to the means.
+##' @param mu symmetric matrix to the means.
 ##' @param sigma variance of the variables.
-##' @param type represent the spacing between two change-point: "Eq" for a homogenous spacement, 
-##'"NEq" for an arithmetic spacement and "NEqbis" for a decreasing arithmetic spacement.
+##' @param type represent the spacing between two change-point: "\code{Eq}" for a homogenous
+##' spacing, "\code{NEq}" for an arithmetic spacing and "\code{NEqbis}" for a decreasing
+##' arithmetic spacing.
 ##'
 ##' @name rblockdata
 ##' @rdname rblockdata
 ##'
 ##' @examples
-##' ## model parameters 
-##' n <- 100 
+##' ## model parameters
+##' n <- 100
 ##' K <- 5
 ##' mu <- suppressWarnings(matrix(rep(c(1,0),ceiling(K**2/2)), K,K))
 ##' Y <- rblockdata(n,mu,sigma=.5)
@@ -23,7 +24,7 @@ rblockdata <- function(n,mu,sigma,type=c("Eq","NEq","NEqbis")) {
 
     type <- match.arg(type)
     K <- ncol(mu)
-    
+
     if (type == "Eq") {
         bt <- rep(n/K,K)
         empl <- c(0,cumsum(bt))
@@ -31,7 +32,7 @@ rblockdata <- function(n,mu,sigma,type=c("Eq","NEq","NEqbis")) {
         empl <- cumsum(floor(n/sum(1:K)*(1:K)))
         empl[K] <- n
         empl <- c(0,empl)
-        bt <- empl[2:(K+1)]-empl[1:K]        
+        bt <- empl[2:(K+1)]-empl[1:K]
     } else if (type == "NEqbis") {
         empl <- cumsum(floor(n/sum(K:1)*(K:1)))
         empl[K] <- n
@@ -56,7 +57,7 @@ rblockdata <- function(n,mu,sigma,type=c("Eq","NEq","NEqbis")) {
                 if (k!=l){
                     betastar[empl[l]+1,empl[k]+1]=betastar[empl[k]+1,empl[l]+1]
                 }
-            }            
+            }
         }
     }
     return(list(Y = as.matrix(forceSymmetric(Y)),
@@ -90,18 +91,18 @@ rblockdata <- function(n,mu,sigma,type=c("Eq","NEq","NEqbis")) {
 ##             B[t.star[i],t.star[j]]=mat_mu[i,j]
 ##         }
 ##     }
-    
+
 ##     ## Noise matrix (symmetric)
 ##     E <- Matrix(0,n,n)
 ##     E[upper.tri(E, diag=TRUE)] <- rnorm((n+n*(n-1)/2),0,1)
 ##     E <- forceSymmetric(E)
-    
+
 ##     ## Triangular low (with bandSparse : extremely small amount of memory)
 ##     ## T <- bandSparse(n,k=(-n+1):0,diagonals=matrix(rep(1,n*(n+1),2),n,n))
 ##     ## T <- bandSparse(n,k=(-n+1):0) * 1
 ##     T <- Matrix(0,n,n,sparse=TRUE)
 ##     T[lower.tri(T,diag=TRUE)] <- 1
-    
+
 ##     ## Observed Matrix
 ##     Y <- T %*% B %*% t(T) + E
 

@@ -12,10 +12,11 @@
 ##' @name blockseg-package
 ##' @docType package
 ##' @author Julien Chiquet \email{julien.chiquet@@gmail.com}
-##' @author Vincent Brault \email{vincent.brault@@agroparistech.fr}
+##' @author Vincent Brault \email{vincent.brault@@univ-grenoble-alpes.fr}
 ##'
-##' @references Vincent Brault, Julien Chiquet, Celine Levy-Leduc.
-##' A Fast Approach for Multiple Change-point Detection in Two-dimensional Data, preprint
+##' @references BRAULT V, CHIQUET J. and LEVY-LEDUC C.Efficient block boundaries estimation in
+##' block-wise constant matrices: An application to HiC data, Electronic Journal of Statistics,
+##' Volume 11, Number 1 (2017), 1570-1599 <doi:10.1214/17-EJS1270>.
 ##'
 ##' @import methods
 ##' @import Matrix

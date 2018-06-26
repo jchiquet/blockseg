@@ -21,11 +21,12 @@ with \code{\link{predict,blockSeg-method}} and \code{\link{evolution,stab.blockS
 }
 
 \references{
-Vincent Brault, Julien Chiquet, Celine Levy-Leduc.
-A Fast Approach for Multiple Change-point Detection in Two-dimensional Data, preprint
+BRAULT V, CHIQUET J. and LEVY-LEDUC C.Efficient block boundaries estimation in
+block-wise constant matrices: An application to HiC data, Electronic Journal of Statistics,
+Volume 11, Number 1 (2017), 1570-1599 <doi:10.1214/17-EJS1270>.
 }
 \author{
 Julien Chiquet \email{julien.chiquet@gmail.com}
 
-Vincent Brault \email{vincent.brault@agroparistech.fr}
+Vincent Brault \email{vincent.brault@univ-grenoble-alpes.fr}
 }

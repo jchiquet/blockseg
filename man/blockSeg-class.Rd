@@ -13,7 +13,7 @@
 \alias{getBreaks,blockSeg-method}
 \alias{getCompressYhat}
 \alias{getCompressYhat,blockSeg-method}
-\title{Class "blockSeg"}
+\title{Class \code{blockSeg}}
 \usage{
 \S4method{print}{blockSeg}(x, ...)
 
@@ -36,11 +36,11 @@ getCompressYhat(object, Y)
 \S4method{getCompressYhat}{blockSeg}(object, Y)
 }
 \arguments{
-\item{x}{in the print method, a blockSeg object}
+\item{x}{in the print method, a \linkS4class{blockSeg} object}
 
 \item{...}{in the print method, additional parameters (ignored)}
 
-\item{object}{an object with class blockSeg}
+\item{object}{an object with class \linkS4class{blockSeg}}
 
 \item{Y}{the original data matrix}
 }
@@ -51,8 +51,8 @@ Class of object returned by the \code{blockSeg} function.
 
 \describe{
 \item{\code{Beta}}{a Matrix object of type \code{dgCMatrix},
-encoding the solution path of the underlying LARS algorithm. Ommited
-if the blockSeg function was called with the option
+encoding the solution path of the underlying LARS algorithm. Omitted
+if the \code{\link{blockSeg}} function was called with the option
 \code{Beta=FALSE}.}
 
 \item{\code{Lambda}}{a numeric vector with the successive values
@@ -60,9 +60,9 @@ of \code{Lambda}, that is, the value of the penalty parameter
 corresponding to a new event in the path (either a variable
 activation or deactivation).}
 
-\item{\code{RowBreaks}}{a list of vectors, one per step of the 
+\item{\code{RowBreaks}}{a list of vectors, one per step of the
 LARS algorithm. Each vector contains the breaks currently identified
-along the ROWS of the 2-dimensional signalat the current step.}
+along the ROWS of the 2-dimensional signal at the current step.}
 
 \item{\code{ColBreaks}}{a list of vectors, one per step of the
 LARS algorithm. Each vector contains the breaks currently identified

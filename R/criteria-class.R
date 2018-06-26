@@ -53,7 +53,7 @@
 ##'
 ##' Estimation of the degrees of freedom (for the elastic-net, the
 ##' LASSO and also bounded regression) are computed by applying and
-##' adpating the results of Tibshirani and Taylor (see references
+##' adapting the results of Tibshirani and Taylor (see references
 ##' below).
 ##'
 ##' @references Ryan Tibshirani and Jonathan Taylor. Degrees of
@@ -61,7 +61,7 @@
 ##'
 ##' @rdname criteria
 ##'
-##' @examples 
+##' @examples
 ##' n <- 100
 ##' K <- 5
 ##' mu <- suppressWarnings(matrix(rep(c(1,0),ceiling(K**2/2)), K,K))
@@ -78,7 +78,7 @@ setGeneric("criteria", function(object, Y, penalty=setNames(c(2, log(length(Y)))
 setMethod("criteria", "blockSeg", definition =
    function(object, Y, penalty=setNames(c(2, log(length(Y))), c("AIC","BIC")), sigma=NULL,
             log.scale=TRUE, xvar = "lambda", plot=TRUE) {
-       
+
      Y.hat <- getCompressYhat(object, Y)
      lambda <- object@Lambda
      N <- length(Y)
@@ -115,7 +115,7 @@ setMethod("criteria", "blockSeg", definition =
        d <- ggplot(data.plot, aes_string(x="xvar", y="value", colour="criterion", group="criterion")) +
            geom_line(aes_string(x="xvar",y="value")) + geom_point(aes_string(x="xvar",y="value")) +
                labs(x=xlab, y="criterion's value",  title=paste("Information Criteria"))
-       
+
        if (log.scale & xvar=="lambda") {
            d <- d + scale_x_log10()
        }

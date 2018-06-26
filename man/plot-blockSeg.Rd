@@ -3,13 +3,13 @@
 \docType{methods}
 \name{plot,blockSeg-method}
 \alias{plot,blockSeg-method}
-\title{Plot method for a blockSeg object}
+\title{Plot method for a \linkS4class{blockSeg} object}
 \usage{
 \S4method{plot}{blockSeg}(x, y, lambda = NULL, ask = TRUE,
   col = "GrayLevel", ...)
 }
 \arguments{
-\item{x}{an object of class \code{blockSeg}.}
+\item{x}{an object of class \linkS4class{blockSeg}.}
 
 \item{y}{used  for S4 compatibility.}
 

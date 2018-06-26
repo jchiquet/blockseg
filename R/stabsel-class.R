@@ -1,4 +1,4 @@
-##' Class "stab.blockSeg"
+##' Class \code{stab.blockSeg}
 ##'
 ##' Class of object returned by the \code{stab.blockSeg} function.
 ##'
@@ -41,7 +41,7 @@ setClass(
     RowBreaks="numeric",
     ColBreaks="numeric")
 )
-##' Plot method for a stab.blockSeg object
+##' Plot method for a \code{stab.blockSeg} object
 ##'
 ##' Produce a plot of two-dimensional segmentation of a \code{stab.blockSeg} fit.
 ##'
@@ -50,9 +50,9 @@ setClass(
 ##' @param threshold the threshold used (percent the maximum value).
 ##' @param postprocessing the condition if plot used a post-processing (if $post=TRUE) or not.
 ##' If there is a post-processing, post-processing$adjacent is the maximal distance between two points.
-##' @param col colours of the graphics. By default, it is "GrayLevel" to black and white colours.
+##' @param col colors of the graphics. By default, it is "\code{GrayLevel}" to black and white colors.
 ##' If it is another "character", it is a level blue or red. Else, it is possible to propose a sequence with
-##' the colour (rgb format).
+##' the color (\code{\link[grDevices]{rgb}} format).
 ##' @param shiny for a representation with a shiny application. By default shiny=FALSE
 ##' @param ... used for S4 compatibility.
 ##'
@@ -112,8 +112,8 @@ setMethod(
                 couleur=gray(seq(0,1, length=256))
                 couleur=couleur[length(couleur):1]
             }else{
-                couleur=c(rgb((0:201)/201*200,(0:201)/201*200,255,maxColorValue = 255),"white",
-                          rgb(255,(0:201)/201*200,(0:201)/201*200,maxColorValue = 255)[201:0])
+                couleur=c(grDevices::rgb((0:201)/201*200,(0:201)/201*200,255,maxColorValue = 255),"white",
+                          grDevices::rgb(255,(0:201)/201*200,(0:201)/201*200,maxColorValue = 255)[201:0])
             }
         }else{
             couleur=col
@@ -143,7 +143,7 @@ setMethod(
                  col="GrayLevel",shiny=FALSE)
           }else{
             if (col=="GrayLevel"){
-              col2="Colour"
+              col2="Color"
             }else{
               col2=col
             }
@@ -292,7 +292,7 @@ setMethod(
     }
 })
 
-##' Plot method for a stab.blockSeg object
+##' Plot method for a \code{stab.blockSeg} object
 ##'
 ##' Produce a plot of two-dimensional segmentation of a \code{stab.blockSeg} fit.
 ##'
@@ -301,9 +301,9 @@ setMethod(
 ##' @param thresholds the thresholds used (percent the maximum value). By default, thresholds = 10 * (8:1).
 ##' @param postprocessing the condition if plot used a post-processing (if $post=TRUE) or not.
 ##' If there is a post-processing, post-processing$adjacent is the maximal distance between two points.
-##' @param col colours of the graphics. By default, it is "GrayLevel" to black and white colours.
+##' @param col colors of the graphics. By default, it is "\code{GrayLevel}" to black and white colors.
 ##' If it is another "character", it is a level blue or red. Else, it is possible to propose a sequence with
-##' the colour (rgb format).
+##' the color (\code{\link[grDevices]{rgb}} format).
 ##' @param ask If \code{TRUE}, to hit will be necessary to see next plot.
 ##' @param ... used for S4 compatibility.
 ##'
@@ -366,8 +366,8 @@ setMethod("evolution", "stab.blockSeg",
           couleur=gray(seq(0,1, length=256))
           couleur=couleur[length(couleur):1]
         }else{
-          couleur=c(rgb((0:201)/201*200,(0:201)/201*200,255,maxColorValue = 255),"white",
-                    rgb(255,(0:201)/201*200,(0:201)/201*200,maxColorValue = 255)[201:0])
+          couleur=c(grDevices::rgb((0:201)/201*200,(0:201)/201*200,255,maxColorValue = 255),"white",
+                    grDevices::rgb(255,(0:201)/201*200,(0:201)/201*200,maxColorValue = 255)[201:0])
         }
       }else{
         couleur=col

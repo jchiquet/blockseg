@@ -5,7 +5,7 @@
 \alias{stab.blockSeg-class}
 \alias{print,stab.blockSeg-method}
 \alias{show,stab.blockSeg-method,}
-\title{Class "stab.blockSeg"}
+\title{Class \code{stab.blockSeg}}
 \description{
 Class of object returned by the \code{stab.blockSeg} function.
 }
