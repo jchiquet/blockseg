@@ -2,7 +2,7 @@
 % Please edit documentation in R/stabsel.R
 \name{stab.blockSeg}
 \alias{stab.blockSeg}
-\title{stab.blockSeg algorithm}
+\title{\code{stab.blockSeg} algorithm}
 \usage{
 stab.blockSeg(Y, nsimu, max.break, max.var = floor(ncol(Y)^2/8),
   random.break = TRUE, sym.break = FALSE, mc.cores = 2, verbose = TRUE)

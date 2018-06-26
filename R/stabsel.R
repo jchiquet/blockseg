@@ -1,4 +1,4 @@
-##' stab.blockSeg algorithm
+##' \code{stab.blockSeg} algorithm
 ##'
 ##' Model selection for the \code{blockSeg} algorithm.
 ##'
