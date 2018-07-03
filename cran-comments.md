@@ -15,6 +15,6 @@ This is a new release, so there are no reverse dependencies.
 
 ---
 
-* We have changed the maintainer, it is now Vincent Brault. We precise because it is our only 
+* We changed the maintainer, it is now Vincent Brault. We precise because it is our only 
 warning.
 Thank you for the work you do.
