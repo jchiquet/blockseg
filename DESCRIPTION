@@ -3,7 +3,7 @@ Type: Package
 Title: Two Dimensional Change-Points Detection
 Version: 0.5.0
 Date: 2018-06-25
-Author: Authors@R: c(
+Authors@R: c(
     person("Julien", "Chiquet", role = c("aut", "cre"), email = "julien.chiquet@inra.fr",
       comment = c(ORCID = "0000-0002-3629-3429")),
     person("Vincent", "Brault", email = "vincent.brault@univ-grenoble-alpes.fr", role = "aut",
