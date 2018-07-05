@@ -70,11 +70,13 @@ stab.blockSeg <- function(Y, nsimu, max.break,max.var = floor(ncol(Y)**2/8),
 
   ## =============================================================
   ## INITIALIZATION & PARAMETERS RECOVERY
-  if (Sys.info()[['sysname']] == "Windows") {
-    warning("\nWindows does not support fork, enforcing mc.cores to '1'.")
-    mc.cores <- 1
+  if (mc.cores>1){
+    if (Sys.info()[['sysname']] == "Windows") {
+      warning("\nWindows does not support fork, enforcing mc.cores to '1'.")
+      mc.cores <- 1
+    }
   }
-  if (random.break){
+  if (!random.break){
     stabsel.bloc <- function(i) {
       if (verbose) {setTxtProgressBar(pb, i)}
       ind <- sort(sample(nrow(Y),nrow(Y)/2))
