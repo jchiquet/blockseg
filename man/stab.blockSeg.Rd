@@ -5,7 +5,8 @@
 \title{\code{stab.blockSeg} algorithm}
 \usage{
 stab.blockSeg(Y, nsimu, max.break, max.var = floor(ncol(Y)^2/8),
-  random.break = TRUE, sym.break = FALSE, mc.cores = 2, verbose = TRUE)
+  random.break = TRUE, sym.break = FALSE, mc.cores = 2,
+  verbose = TRUE)
 }
 \arguments{
 \item{Y}{matrix of observations.}

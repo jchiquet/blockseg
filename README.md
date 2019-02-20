@@ -9,7 +9,7 @@ Stable version
 install.packages("blockseg")
 ```
 
-Developement version
+Development version
 
 ```
 devtools::install_github("jchiquet/blockseg")

@@ -6,8 +6,8 @@
 \alias{evolution,stab.blockSeg-method}
 \title{Plot method for a \code{stab.blockSeg} object}
 \usage{
-evolution(x, y, thresholds = 10 * (8:1), postprocessing = list(post = TRUE,
-  adjacent = 2), col = "GrayLevel", ask = TRUE)
+evolution(x, y, thresholds = 10 * (8:1), postprocessing = list(post =
+  TRUE, adjacent = 2), col = "GrayLevel", ask = TRUE)
 
 \S4method{evolution}{stab.blockSeg}(x, y, thresholds = 10 * (8:1),
   postprocessing = list(post = TRUE, adjacent = 2), col = "GrayLevel",

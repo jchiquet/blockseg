@@ -6,8 +6,9 @@
 \alias{criteria,blockSeg-method}
 \title{Penalized criteria based on estimation of degrees of freedom}
 \usage{
-criteria(object, Y, penalty = setNames(c(2, log(length(Y))), c("AIC", "BIC")),
-  sigma = NULL, log.scale = TRUE, xvar = "lambda", plot = TRUE)
+criteria(object, Y, penalty = setNames(c(2, log(length(Y))), c("AIC",
+  "BIC")), sigma = NULL, log.scale = TRUE, xvar = "lambda",
+  plot = TRUE)
 
 \S4method{criteria}{blockSeg}(object, Y, penalty = setNames(c(2,
   log(length(Y))), c("AIC", "BIC")), sigma = NULL, log.scale = TRUE,

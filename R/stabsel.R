@@ -115,7 +115,10 @@ stab.blockSeg <- function(Y, nsimu, max.break,max.var = floor(ncol(Y)**2/8),
   } else {
     res.cum <- Reduce("+", lapply(1:nsimu, stabsel.bloc))
   }
-  cat("\n")
+
+  if (verbose) {
+    cat("\n")
+  }
   if (sym.break){
     res.cum=matrix(rep(rowSums(res.cum),2),ncol=2)
   }
