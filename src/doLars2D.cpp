@@ -13,7 +13,7 @@ using namespace Rcpp;
 List doLARS2D(SEXP R_Y, SEXP R_maxBreaks, SEXP R_maxVar, SEXP R_verbose, SEXP R_Beta){
   // disable messages being printed to the err2 stream
   std::ostream nullstream(0);
-  set_stream_err2(nullstream);
+  set_cerr_stream(nullstream);
 
   Rcpp::traits::input_parameter< const arma::mat& >::type Y(R_Y);
   Rcpp::traits::input_parameter< const uword& >::type maxBreaks(R_maxBreaks);
@@ -38,7 +38,7 @@ NumericVector Xprod(SEXP R_Y){
   Rcpp::traits::input_parameter< const arma::mat& >::type Y(R_Y);
 
   Lars2D seg2D(Y, 1, 1, false, false);
-  
+
   return(wrap(seg2D.XProd(Y)));
 }
 
